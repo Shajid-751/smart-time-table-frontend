@@ -11,7 +11,7 @@ function Register() {
   e.preventDefault();
   try {
     
-    const res = await axios.post('http://localhost:5000/api/register', formData);
+    const res = await axios.post('https://smart-time-table-backend-1.onrender.com/api/register', formData);
     alert("Completed Successfully : " + res.data.message); 
     navigate('/'); 
   } catch (err) {
