@@ -33,7 +33,7 @@ function Dashboard() {
 
   const autoFetchTimetable = async (dept) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/timetable/${dept}`);
+      const res = await axios.get(`https://smart-time-table-backend-1.onrender.com/api/timetable/${dept}`);
       setTimetable(res.data);
     } catch (err) { console.log("Auto-fetch error"); }
   };
@@ -100,14 +100,14 @@ function Dashboard() {
   const fetchTimetable = async () => {
     if (!deptFilter) return alert("Type Your Dept Name");
     try {
-      const res = await axios.get(`http://localhost:5000/api/timetable/${deptFilter.toUpperCase()}`);
+      const res = await axios.get(`https://smart-time-table-backend-1.onrender.com/api/timetable/${deptFilter.toUpperCase()}`);
       setTimetable(res.data);
     } catch (err) { alert("Data Fetch error!"); }
   };
 
   const handleAdd = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/add-slot', formData);
+      const res = await axios.post('https://smart-time-table-backend-1.onrender.com/api/add-slot', formData);
       alert("✅ " + (res.data.message || "Slot Added Successfully!")); 
       if (formData.department === deptFilter.toUpperCase()) {
         fetchTimetable();
@@ -121,7 +121,7 @@ function Dashboard() {
   const deleteSlot = async (id) => {
     if(window.confirm("Are You Want To Delete ?")) {
         try {
-            await axios.delete(`http://localhost:5000/api/delete-slot/${id}`);
+            await axios.delete(`https://smart-time-table-backend-1.onrender.com/api/delete-slot/${id}`);
             fetchTimetable(); 
         } catch (err) { alert("Delete error!"); }
     }
@@ -130,7 +130,7 @@ function Dashboard() {
   const checkFacultyBusy = async () => {
     if (!facultySearch) return alert("Type Your Faculty Name!");
     try {
-        const res = await axios.get(`http://localhost:5000/api/faculty/${facultySearch}`);
+        const res = await axios.get(`https://smart-time-table-backend-1.onrender.com/api/faculty/${facultySearch}`);
         setFacultySchedule(res.data);
     } catch (err) { alert("Search error!"); }
   };
