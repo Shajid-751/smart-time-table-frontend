@@ -13,7 +13,7 @@ function Login() {
   const handleAuth = async () => {
     const endpoint = isRegister ? 'register' : 'login';
     try {
-      const res = await axios.post(`http://localhost:5000/api/${endpoint}`, { 
+      const res = await axios.post(`https://smart-time-table-backend-1.onrender.com/api/${endpoint}`, { 
         email: email, 
         password: password,
         department: isRegister ? dept : undefined 
